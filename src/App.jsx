@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from './components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card.jsx'
-import { Calendar, Users, Palette, Shield, Clock, MapPin } from 'lucide-react'
+import { Calendar, Users, Palette, Shield, Clock, MapPin, Phone, Mail } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -12,10 +12,9 @@ function App() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
+              <div className="w-8 h-8 rounded-full flex items-center justify-center">
+                <img src="/src/assets/Logo.svg" alt="Township Green" className="w-6 h-6" />
               </div>
-              <h1 className="text-2xl font-bold text-secondary">Township Green</h1>
             </div>
             <nav className="hidden md:flex space-x-6">
               <a href="#about" className="text-gray-700 hover:text-primary transition-colors">About</a>
@@ -40,13 +39,25 @@ function App() {
             Join us for guided art sessions, community events, and a safe, welcoming environment 
             designed for relaxation and artistic expression.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-3">
-              Book Your Art Session
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8 py-3">
-              View Events Calendar
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-3">
+                Book Your Art Session
+              </Button>
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 text-lg px-8 py-3">
+                View Events Calendar
+              </Button>
+            </div>
+            <div className="flex flex-col items-center gap-2 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-green-100 shadow-lg">
+              <img 
+                src="/src/assets/frame.png" 
+                alt="Scan to visit Township Green dispensary" 
+                className="w-24 h-24 sm:w-28 sm:h-28"
+              />
+              <p className="text-xs text-center text-gray-600 font-medium">
+                Scan for Dispensary
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -220,8 +231,8 @@ function App() {
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 text-primary mt-1 mr-3" />
                   <div>
-                    <p className="font-medium">123 Creative Avenue</p>
-                    <p className="text-gray-600">Arts District, CA 90210</p>
+                    <p className="font-medium">15 Scott Street</p>
+                    <p className="text-gray-600">Riverside, NJ, United States</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -240,13 +251,29 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Ready to join our creative community? Book your first session or contact us for more information about our programs and membership options.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <Button className="w-full bg-primary hover:bg-primary/90">
                   Book Your First Session
                 </Button>
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
                   Contact Us
                 </Button>
+                
+                {/* QR Code for Dispensary */}
+                <div className="flex items-center justify-center mt-6 p-4 bg-white/90 rounded-lg border border-green-100 shadow-sm">
+                  <div className="flex items-center gap-4">
+                    <img 
+                      src="/src/assets/frame.png" 
+                      alt="Scan to visit Township Green dispensary" 
+                      className="w-20 h-20"
+                    />
+                    <div className="text-left">
+                      <h5 className="font-semibold text-gray-900 mb-1">Want to feel even higher?</h5>
+                      <p className="text-sm text-gray-600 mb-1">Visit our dispensary</p>
+                      <p className="text-xs text-gray-500">Scan QR code</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -256,17 +283,39 @@ function App() {
       {/* Footer */}
       <footer className="bg-secondary text-white py-8 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">T</span>
+                <div className="w-6 h-6 rounded-full flex items-center justify-center">
+                  <img src="/src/assets/Logo.svg" alt="Township Green" className="w-6 h-6" />
                 </div>
                 <h5 className="text-lg font-semibold">Township Green</h5>
               </div>
               <p className="text-gray-300 text-sm">
                 A premium cannabis consumption lounge fostering creativity and community through art.
               </p>
+            </div>
+
+            <div>
+              <h6 className="font-semibold mb-3">Contact Info</h6>
+              <div className="space-y-2 text-sm text-gray-300">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span>15 Scott Street<br />Riverside, NJ, United States</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="tel:+18565443065" className="hover:text-white transition-colors">
+                    (+1) 856-544-3065
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                  <a href="mailto:info@townshipgreen.com" className="hover:text-white transition-colors">
+                    info@townshipgreen.com
+                  </a>
+                </div>
+              </div>
             </div>
             
             <div>
