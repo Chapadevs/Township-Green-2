@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card.jsx'
 import { Calendar, Users, Palette, Shield, Clock, MapPin, Phone, Mail } from 'lucide-react'
+import { ASSETS } from './utils/assets.js'
 import './App.css'
 
 function App() {
@@ -10,12 +11,13 @@ function App() {
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-green-100 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 rounded-full flex items-center justify-center">
-                <img src="/src/assets/Logo.svg" alt="Township Green" className="w-6 h-6" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="logo-container w-12 h-12 rounded-full">
+                  <img src={ASSETS.LOGO} alt="Township Green" className="township-logo" />
+                </div>
+                <h1 className="text-2xl font-bold text-secondary">Township Green</h1>
               </div>
-            </div>
             <nav className="hidden md:flex space-x-6">
               <a href="#about" className="text-gray-700 hover:text-primary transition-colors">About</a>
               <a href="#sessions" className="text-gray-700 hover:text-primary transition-colors">Art Sessions</a>
@@ -50,7 +52,7 @@ function App() {
             </div>
             <div className="flex flex-col items-center gap-2 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-green-100 shadow-lg">
               <img 
-                src="/src/assets/frame.png" 
+                src={ASSETS.FRAME_QR} 
                 alt="Scan to visit Township Green dispensary" 
                 className="w-24 h-24 sm:w-28 sm:h-28"
               />
@@ -263,7 +265,7 @@ function App() {
                 <div className="flex items-center justify-center mt-6 p-4 bg-white/90 rounded-lg border border-green-100 shadow-sm">
                   <div className="flex items-center gap-4">
                     <img 
-                      src="/src/assets/frame.png" 
+                      src={ASSETS.FRAME_QR} 
                       alt="Scan to visit Township Green dispensary" 
                       className="w-20 h-20"
                     />
@@ -286,8 +288,8 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-6 h-6 rounded-full flex items-center justify-center">
-                  <img src="/src/assets/Logo.svg" alt="Township Green" className="w-6 h-6" />
+                <div className="logo-container w-8 h-8 rounded-full">
+                  <img src={ASSETS.LOGO} alt="Township Green" className="township-logo-footer" />
                 </div>
                 <h5 className="text-lg font-semibold">Township Green</h5>
               </div>
@@ -341,8 +343,8 @@ function App() {
           
           <div className="border-t border-gray-600 mt-8 pt-6 text-center text-sm text-gray-300">
             <p>&copy; 2024 Township Green. All rights reserved. Must be 21+ to enter.</p>
-          </div>
-        </div>
+      </div>
+    </div>
       </footer>
     </div>
   )
